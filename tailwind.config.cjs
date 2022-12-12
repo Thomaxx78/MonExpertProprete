@@ -5,7 +5,14 @@ module.exports = {
     "./src/**/*.{js,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'Inter': ['"Inter"'],
+      },
+      colors: {
+        'gen-blue': '#0647F4',
+      }
+    },
   },
   plugins: [],
 }
