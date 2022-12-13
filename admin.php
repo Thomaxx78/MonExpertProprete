@@ -1,3 +1,7 @@
+<?php
+require "database/connect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,20 +13,19 @@
 </head>
 <body>
     <header class="sticky top-0 left-0 bg-white">
-    <nav class="py-4 flex row justify-evenly border-solid border-blue-700 border-b-2">
-        <a href="admin.php" class="text-blue-700">Modifier la FAQ</a>
-        <a href="adminBlog.php">Modifier le blog</a>
-    </nav>
+        <nav class="py-4 flex row justify-evenly border-solid border-blue-700 border-b-2">
+            <a href="admin.php" class="text-blue-700">Modifier la FAQ</a>
+            <a href="adminBlog.php">Modifier le blog</a>
+        </nav>
     </header>
     <main>
         <div class="my-8 gap-6 flex flex-col">
             <h1 class="font-bold text-2xl text-center">Questions de la FAQ</h1>
             <div class="flex justify-center">
-                <a href="adminAddQuestion.php" class="bg-blue-700 px-4 py-2 text-white rounded">Ajouter une question</a>
+                <a href="editQuestion.php" class="bg-blue-700 px-4 py-2 text-white rounded">Ajouter une question</a>
             </div>
         </div>
         <?php
-            require "database/connect.php";
             $recup_questions = $database->prepare("SELECT * FROM questionsfaq");
             $recup_questions->execute();
             $questions = $recup_questions->fetchAll();
@@ -47,8 +50,7 @@
                                     <img class="w-6" src="public\iconAdmin\no-video.png" alt="">
                                 <?php } else{ ?>
                                     <img class="w-6" src="public\iconAdmin\oeil.png" alt="">
-                                <?php }; ?>
-                            
+                                <?php }; ?> 
                             </button>
                         </form>
                         <form method="POST" action="database/actions.php">
@@ -60,7 +62,7 @@
             <?php }; ?>
         </section>    
         <div class="flex justify-center my-8">
-            <a href="adminAddQuestion.php" class="bg-blue-700 px-4 py-2 text-white rounded">Ajouter une question</a>
+            <a href="editQuestion.php" class="bg-blue-700 px-4 py-2 text-white rounded">Ajouter une question</a>
         </div>
     </main>
 </body>
