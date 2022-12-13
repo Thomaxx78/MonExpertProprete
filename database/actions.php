@@ -10,7 +10,7 @@ if (isset($_POST["delete_question"])){
 
     $delete = $database->prepare("DELETE FROM questionsfaq WHERE question_id = :question_id");
     if ($delete->execute($donnees)){
-        header("Location: ../admin.php");
+        header("Location: ../gestionFAQ.php");
         exit;
     } else{
         echo "Une erreur est survenue lors de la suppression";
@@ -32,7 +32,7 @@ if (isset($_POST["delete_question"])){
 
     $show = $database->prepare("UPDATE questionsfaq SET question_show = :question_show WHERE question_id = :question_id");
     if ($show->execute($data)){
-        header("Location: ../admin.php");
+        header("Location: ../gestionFAQ.php");
         exit;
     } else{
         echo "Une erreur est survenue lors du changement de visibilité";
@@ -58,7 +58,7 @@ if (isset($_POST["delete_question"])){
     
         $edit = $database->prepare("UPDATE questionsfaq SET question_title = :question_title, question_content = :question_content, question_show = :question_visible WHERE question_id = :question_id");
         if ($edit->execute($data)){
-            header("Location: ../admin.php");
+            header("Location: ../gestionFAQ.php");
             exit;
         } else{
             echo "Une erreur est survenue lors de la modification";
@@ -75,12 +75,38 @@ if (isset($_POST["delete_question"])){
 
         $add = $database->prepare("INSERT INTO questionsfaq (question_title, question_content, question_show) VALUES (:question_title, :question_content, :question_visible)");
         if ($add->execute($datar)){
-            header("Location: ../admin.php");
+            header("Location: ../gestionFAQ.php");
             exit;
         } else{
             echo "Une erreur est survenue lors de l'ajout";
         }
     }
+} elseif(isset($_POST["username"]) && isset($_POST["password"])){
+    $username = $_POST["username"];
+    $password = md5($_POST["password"]);
+
+    $data=[
+        "username" => $username,
+        "password" => $password
+    ];
+
+    $login = $database->prepare("SELECT * FROM users WHERE user_name = :username AND user_password = :password");
+    if ($login->execute($data)){
+        $result = $login->fetch();
+        if($result){
+            session_start();
+            $_SESSION["username"] = $result["username"];
+            $_SESSION["password"] = $result["password"];
+            header("Location: ../gestionFAQ.php");
+            exit;
+        } else{
+            echo "Identifiants incorrects";
+        }
+    } else{
+        echo "Une erreur est survenue lors de la connexion";
+    }
+} else{
+    echo "Une erreur est survenue";
 }
 
 ?>

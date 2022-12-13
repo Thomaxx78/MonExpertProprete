@@ -37,7 +37,7 @@ if(!$is_new_question){
 <body>
     <header class="sticky top-0 left-0 bg-white">
         <nav class="py-4 flex row justify-evenly border-solid border-blue-700 border-b-2">
-            <a href="admin.php">Modifier la FAQ</a>
+            <a href="gestionFAQ.php">Modifier la FAQ</a>
             <a href="adminBlog.php" class="text-blue-700">Modifier le blog</a>
         </nav>
     </header>
