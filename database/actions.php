@@ -6,13 +6,19 @@ if (isset($_POST["delete_element"])){
     $element_id= $_POST["delete_element"];
 
     $data=[
-        "element_id" => $element_id
+        "element_id" => htmlspecialchars($element_id)
     ];
 
     if($_POST["gestion"]=="faq"){
         $delete = $database->prepare("DELETE FROM questionsfaq WHERE question_id = :element_id");
     } else{
+        $take_link = $database->prepare("SELECT article_image FROM articlesblog WHERE article_id = :element_id");
+        $take_link->execute($data);
+        $link = $take_link->fetch();
+
         $delete = $database->prepare("DELETE FROM articlesblog WHERE article_id = :element_id");
+
+        unlink($link["article_image"]);
     }
     if ($delete->execute($data)){
         header("Location: ../gestion.php?gestion=" . $_POST["gestion"]);
@@ -32,8 +38,8 @@ if (isset($_POST["delete_element"])){
     }
 
     $data=[
-        "element_id" => $element_id,
-        "element_show" => $element_show
+        "element_id" => htmlspecialchars($element_id),
+        "element_show" => htmlspecialchars($element_show)
     ];
 
     if($_POST["gestion"]=="faq"){
@@ -61,10 +67,10 @@ if (isset($_POST["delete_element"])){
         $element_content = $_POST["element_content"];
     
         $data=[
-            "element_id" => $element_id,
-            "element_title" => $element_title,
-            "element_content" => $element_content,
-            "element_visible" => $element_visible
+            "element_id" => htmlspecialchars($element_id),
+            "element_title" => htmlspecialchars($element_title),
+            "element_content" => htmlspecialchars($element_content),
+            "element_visible" => htmlspecialchars($element_visible)
         ];
     
         if($_POST["gestion"]=="faq"){
@@ -84,23 +90,19 @@ if (isset($_POST["delete_element"])){
         $element_title = $_POST["element_title"];
         $element_content = $_POST["element_content"];
 
-        if($_POST["gestion"]=="faq"){
-            $data=[
-                "element_title" => $element_title,
-                "element_content" => $element_content,
-                "element_visible" => $element_visible
-            ];
+        $data=[
+            "element_title" => htmlspecialchars($element_title),
+            "element_content" => htmlspecialchars($element_content),
+            "element_visible" => htmlspecialchars($element_visible)
+        ];
 
+        if($_POST["gestion"]=="faq"){
             $add = $database->prepare("INSERT INTO questionsfaq (question_title, question_content, question_show) VALUES (:element_title, :element_content, :element_visible)");
         } else{
-            $data=[
-                "element_title" => $element_title,
-                "element_content" => $element_content,
-                "element_image" => "abcd",
-                "element_visible" => $element_visible
-            ];
+            $data["element_image_link"] = '../public/imagesArticles/' . $_FILES["element_image"]["name"];
+            move_uploaded_file($_FILES["element_image"]["tmp_name"], $data["element_image_link"]);
 
-            $add = $database->prepare("INSERT INTO articlesblog (article_title, article_content, article_show, article_image) VALUES (:element_title, :element_content, :element_visible, :element_image)");
+            $add = $database->prepare("INSERT INTO articlesblog (article_title, article_content, article_show, article_image) VALUES (:element_title, :element_content, :element_visible, :element_image_link)");
         }
         if ($add->execute($data)){
             header("Location: ../gestion.php?gestion=" . $_POST["gestion"]);
@@ -116,8 +118,8 @@ if (isset($_POST["delete_element"])){
     $password = md5($_POST["password"]);
 
     $data=[
-        "username" => $username,
-        "password" => $password
+        "username" => htmlspecialchars($username),
+        "password" => htmlspecialchars($password)
     ];
 
     $login = $database->prepare("SELECT * FROM admins WHERE admin_name = :username AND admin_password = :password");

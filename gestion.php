@@ -31,12 +31,6 @@ if(isset($_GET["gestion"])){
     $genre = "du";
     $genre2 = "un";
 }
-
-if(isset($_GET["deco"])){
-    session_destroy();
-    header("Location: admin.php");
-    exit;
-}
 ?>
 
 <!DOCTYPE html>

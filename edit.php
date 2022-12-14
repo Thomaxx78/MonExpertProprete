@@ -87,7 +87,7 @@ if(!$is_new_content){
     </header>
     <main>
         <h1 class="font-bold text-2xl text-center">Ajouter une question</h1>
-        <form method="POST" action="database/actions.php" class="flex flex-col gap-4 p-2 m-2">
+        <form method="POST" action="database/actions.php" enctype="multipart/form-data" class="flex flex-col gap-4 p-2 m-2">
             <input type="hidden" name="element_id" value="<?= $content_id; ?>">
             <input type="hidden" name="gestion" value="<?= $_GET["gestion"]; ?>">
             <input type="hidden" name="element_new" value="<?= $is_new_content; ?>">
@@ -95,6 +95,13 @@ if(!$is_new_content){
             <input type="text" name="element_title" id="element_title" class="border-solid border-blue-700 border-2" value="<?= $all_content[0][$gestion . "_title"];?>">
             <label for="element_content" class="w-9/12">Réponse :</label>
             <textarea name="element_content" id="element_content" cols="30" rows="10" class="border-solid border-blue-700 border-2 resize-none"><?= $all_content[0][$gestion . "_content"];?></textarea>
+            <?php
+            // Si on est sur la page blog et que c'est un nouvel article qui est créé, on affiche l'input pour l'image
+            if($gestion == "article" AND !isset($_GET["edit_element"])){
+                echo '<label for="element_image" class="w-9/12">Image :</label>';
+                echo '<input type="file" name="element_image" id="element_image" class="border-solid border-blue-700 border-2">';
+            }
+            ?>
             <div class="flex justify-between">
                 <label for="element_visible" class="w-9/12">Visible :</label>
                 <input type="checkbox" name="element_visible" id="element_visible" class="border-solid border-blue-700 border-2 p-2" <?php if($all_content[0][$gestion . "_show"]==0){echo 'checked';};?>>

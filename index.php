@@ -54,14 +54,14 @@ require "database/connect.php";
     <div class="ml-4 mt-8 mr-4 flex-column lg:mt-16">
         <h2 class="text-2xl font-bold text-gen-blue">FAQ</h2>
         <h2 class="text-3xl font-bold">Questions fréquentes</h2>
-        <div class="flex flex-col">
+        <div>
             <?php
                 $take_all = $database->prepare("SELECT * FROM questionsfaq WHERE question_show = 0 ORDER BY question_id DESC");
                 $take_all->execute();
                 $all_questions = $take_all->fetchAll();
 
                 foreach($all_questions as $question){?>
-                    <div class="mt-12 text-lg lg:w-6/12">
+                    <div class="mt-12 text-lg w-12/12 lg:w-6/12">
                         <h2 class="text-gen-blue font-bold"><?=$question['question_title']?></h2>
                         <span><?=$question['question_content']?></span>
                     </div>
