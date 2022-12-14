@@ -1,99 +1,93 @@
+<?php
+require "database/connect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="style.css" rel="stylesheet">
     <title>Vite App</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins&display=swap">
-  </head>
-  <header class="font-Inter">
+</head>
+<header class="font-Inter">
     <div class="mt-6 flex items-center">
-      <img src="public/logo.png" class="ml-4 w-6/12 lg:w-2/12 lg:ml-16">
-      <a href="#" class=" bg-gen-blue hover:bg-blue-800 rounded text-white ml-auto mr-4 text-center px-4 py-2 font-bold lg:mr-16 lg:px-5 lg:py-3 lg:text-2xl">Télécharger</a>
+    <img src="public/logo.png" class="ml-4 w-6/12 lg:w-2/12 lg:ml-16">
+    <a href="#" class=" bg-gen-blue hover:bg-blue-800 rounded text-white ml-auto mr-4 text-center px-4 py-2 font-bold lg:mr-16 lg:px-5 lg:py-3 lg:text-2xl">Télécharger</a>
     </div>
-  </header>
-  <body class="font-Inter">
+</header>
+<body class="font-Inter">
     <div class="lg:flex lg:items-center lg:mt-16">
-    <div class="flex-col mt-16 ml-4 lg:ml-16">
-      <h1 class="font-bold text-3xl mr-4 lg:text-6xl lg:w-9/12">Choisir les meilleurs produits d'entretient pour votre santé.</h1>
-      <h3 class="mt-2 text-xl mr-4 lg:text-2xl lg:font-bold lg:mt-12 lg:w-7/12">Une application pour scanner vos produits et trouver des bons conseils pour les utiliser.</h3>
-      <div class="flex mt-6 space-x-4 items-center">
-        <a href="#" class=" bg-gen-blue hover:bg-blue-800 px-3 py-1 font-bold text-white rounded lg:text-xl lg:py-4 lg:w-3/12 lg:text-center">Télécharger</a>
-        <a href="#" class="text-gen-blue hover:bg-gen-blue hover:text-white font-bold  border-2 border-gen-blue px-3 py-1 rounded lg:py-4 lg:w-4/12 lg:text-xl lg:text-center">Voir la démo</a>
-      </div>
-    </div>
-    <img src="public/deuxTelBann.png" alt="" class="ml-auto mr-auto w-10/12 mt-12 lg:mr-16 lg:w-5/12">
+        <div class="flex-col mt-16 ml-4 lg:ml-16">
+            <h1 class="font-bold text-3xl mr-4 lg:text-6xl lg:w-9/12">Choisir les meilleurs produits d'entretient pour votre santé.</h1>
+            <h3 class="mt-2 text-xl mr-4 lg:text-2xl lg:font-bold lg:mt-12 lg:w-7/12">Une application pour scanner vos produits et trouver des bons conseils pour les utiliser.</h3>
+            <div class="flex mt-6 space-x-4 items-center">
+                <a href="#" class=" bg-gen-blue hover:bg-blue-800 px-3 py-1 font-bold text-white rounded lg:text-xl lg:py-4 lg:w-3/12 lg:text-center">Télécharger</a>
+                <a href="#" class="text-gen-blue hover:bg-gen-blue hover:text-white font-bold  border-2 border-gen-blue px-3 py-1 rounded lg:py-4 lg:w-4/12 lg:text-xl lg:text-center">Voir la démo</a>
+            </div>
+        </div>
+        <img src="public/deuxTelBann.png" alt="" class="ml-auto mr-auto w-10/12 mt-12 lg:mr-16 lg:w-5/12">
     </div>
     <div class="lg:flex lg:items-center lg:justify-center lg:space-x-8">
-      <img src="public/unTelBann.png" alt="" class="hidden lg:block lg:mt-24 lg:w-5/12">
-      <div class="flex-column ml-4 mt-12 lg:w-5/12 lg:ml-0">
-        <span class="text-4xl font-bold">Fonctionnalités</span>
-        <div class="flex mt-6 items-center">
-          <img src="public/scan.png" alt="" class="mr-4 h-4 lg:h-6">
-          <span class="font-bold lg:text-2xl">Scan les produits de chez toi</span>
+        <img src="public/unTelBann.png" alt="" class="hidden lg:block lg:mt-24 lg:w-5/12">
+        <div class="flex-column ml-4 mt-12 lg:w-5/12 lg:ml-0">
+            <span class="text-4xl font-bold">Fonctionnalités</span>
+            <div class="flex mt-6 items-center">
+            <img src="public/scan.png" alt="" class="mr-4 h-4 lg:h-6">
+            <span class="font-bold lg:text-2xl">Scan les produits de chez toi</span>
+            </div>
+            <span class="font-normal mr-4 lg:text-lg">Découvre si les produits que tu utilises sont bons pour toi et pour ta famille.</span>
+            <div class="flex mt-6 items-center">
+            <img src="public/livre.png" alt="" class="mr-4 h-5 lg:h-7">
+            <span class="font-bold w-8/12 lg:text-2xl ">Trouve des conseils pour bien choisir tes produits</span>
+            </div>
+            <span class="font-normal mr-4 lg:text-lg">Apprends des astuces pour gérer les situations qui nécessitent l’utilisation de produit d’entretien.</span>
+            <div class="flex mt-6 items-center">
+            <img src="public/sauvegarde.png" alt="" class="mr-4 h-5 lg:h-7">
+            <span class="font-bold w-8/12 lg:text-2xl ">Sauvegarde tes produits préférés</span>
+            </div>
+            <span class="font-normal lg:text-lg mr-4">Enregistre une liste de produit d’entretien bon pour la santé et qui fonctionne.</span>
         </div>
-        <span class="font-normal mr-4 lg:text-lg">Découvre si les produits que tu utilises sont bons pour toi et pour ta famille.</span>
-        <div class="flex mt-6 items-center">
-          <img src="public/livre.png" alt="" class="mr-4 h-5 lg:h-7">
-          <span class="font-bold w-8/12 lg:text-2xl ">Trouve des conseils pour bien choisir tes produits</span>
-        </div>
-        <span class="font-normal mr-4 lg:text-lg">Apprends des astuces pour gérer les situations qui nécessitent l’utilisation de produit d’entretien.</span>
-        <div class="flex mt-6 items-center">
-          <img src="public/sauvegarde.png" alt="" class="mr-4 h-5 lg:h-7">
-          <span class="font-bold w-8/12 lg:text-2xl ">Sauvegarde tes produits préférés</span>
-        </div>
-        <span class="font-normal lg:text-lg mr-4">Enregistre une liste de produit d’entretien bon pour la santé et qui fonctionne.</span>
-      </div>
     </div>
-      <div class="ml-4 mt-8 mr-4 flex-column lg:mt-16">
+    <div class="ml-4 mt-8 mr-4 flex-column lg:mt-16">
         <h2 class="text-2xl font-bold text-gen-blue">FAQ</h2>
         <h2 class="text-3xl font-bold">Questions fréquentes</h2>
-        <div class="lg:flex">
-        <div>
-        <div class="mt-8 text-lg ">
-          <h2 class="text-gen-blue font-bold">L'application est-elle gratuite ?</h2>
-          <h2 class="w-9/12">MonExpertPropreté est une application 100% gratuite.</h2>
-        </div>
-        <div class="mt-4 text-lg bg-gen-blue p-2 rounded">
-          <h2 class="text-white font-bold">D'autres fonctionnalités à venir ?</h2>
-          <h2 class="w-9/12 text-white">L’application est en évolution permanente.</h2>
-        </div>
-      </div>
-      <div>
-        <div class="mt-4 text-lg">
-          <h2 class="text-gen-blue font-bold">L'application est-elle gratuite ?</h2>
-          <h2 class="w-9/12">MonExpertPropreté est une application 100% gratuite.</h2>
-        </div>
-        <div class="mt-4 text-lg bg-gen-blue p-2 rounded">
-          <h2 class="text-white font-bold">D'autres fonctionnalités à venir ?</h2>
-          <h2 class="w-9/12 text-white">L’application est en évolution p  bbbbbnnnnnnnnnnnnnnnnnn,ermanente.</h2>
-        </div>
-      </div>
-      </div>
-      </div>
+        <div class="flex flex-col">
+            <?php
+                $take_all = $database->prepare("SELECT * FROM questionsfaq WHERE question_show = 0 ORDER BY question_id DESC");
+                $take_all->execute();
+                $all_questions = $take_all->fetchAll();
 
-      <div class="flex w-12/12 mt-8 bg-gen-blue">
-        <div class="flex-col ml-4 items-center">
-          <img src="public/logoblanc.png" alt="" class="h-8">
-          <div class="flex">
-          <div class="flex-col text-white font-semibold">
-            <h2 class="text-xs">Nous contacter</h2>
-            <h2 class="text-xs">Conditions d'utilisations</h2>
-            <h2 class="text-xs">Règle de confidentalité</h2>
-          </div>
-          <div class="flex h-4 ml-auto mr-4">
-            <img src="public/fb.png" alt="">
-            <img src="public/tiktok.png" alt="">
-            <img src="public/snap.png" alt="">
-            <img src="public/insta.png" alt="">
-            <img src="public/tumblr.png" alt="">
-          </div>
-          </div>
+                foreach($all_questions as $question){?>
+                    <div class="mt-12 text-lg lg:w-6/12">
+                        <h2 class="text-gen-blue font-bold"><?=$question['question_title']?></h2>
+                        <span><?=$question['question_content']?></span>
+                    </div>
+            <?php } ?>
         </div>
-      </div>
-    <script type="module" src="/main.js"></script>
-  </body>
+    </div>
+
+    <div class="flex w-12/12 mt-8 bg-gen-blue">
+        <div class="flex-col ml-4 items-center">
+            <img src="public/logoblanc.png" alt="" class="h-8">
+            <div class="flex">
+                <div class="flex-col text-white font-semibold">
+                    <h2 class="text-xs">Nous contacter</h2>
+                    <h2 class="text-xs">Conditions d'utilisations</h2>
+                    <h2 class="text-xs">Règle de confidentalité</h2>
+                </div>
+                <div class="flex h-4 ml-auto mr-4">
+                    <img src="public/fb.png" alt="">
+                    <img src="public/tiktok.png" alt="">
+                    <img src="public/snap.png" alt="">
+                    <img src="public/insta.png" alt="">
+                    <img src="public/tumblr.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
 </html>
