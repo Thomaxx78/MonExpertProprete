@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="style.css" rel="stylesheet">
     <title>Vite App</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins&display=swap">
   </head>
@@ -67,7 +69,7 @@
         </div>
         <div class="mt-4 text-lg bg-gen-blue p-2 rounded">
           <h2 class="text-white font-bold">D'autres fonctionnalités à venir ?</h2>
-          <h2 class="w-9/12 text-white">L’application est en évolution permanente.</h2>
+          <h2 class="w-9/12 text-white">L’application est en évolution p  bbbbbnnnnnnnnnnnnnnnnnn,ermanente.</h2>
         </div>
       </div>
       </div>
