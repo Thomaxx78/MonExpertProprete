@@ -1,86 +1,116 @@
 <?php
 require "connect.php";
 
-if (isset($_POST["delete_question"])){
-    $question_id= $_POST["delete_question"];
+// Supprimer un élément (article ou question)
+if (isset($_POST["delete_element"])){
+    $element_id= $_POST["delete_element"];
 
-    $donnees=[
-        "question_id" => $question_id
+    $data=[
+        "element_id" => $element_id
     ];
 
-    $delete = $database->prepare("DELETE FROM questionsfaq WHERE question_id = :question_id");
-    if ($delete->execute($donnees)){
-        header("Location: ../gestionFAQ.php");
+    if($_POST["gestion"]=="faq"){
+        $delete = $database->prepare("DELETE FROM questionsfaq WHERE question_id = :element_id");
+    } else{
+        $delete = $database->prepare("DELETE FROM articlesblog WHERE article_id = :element_id");
+    }
+    if ($delete->execute($data)){
+        header("Location: ../gestion.php?gestion=" . $_POST["gestion"]);
         exit;
     } else{
         echo "Une erreur est survenue lors de la suppression";
     }
 
-} elseif (isset($_POST["show_question_id"])){
-    $question_id= $_POST["show_question_id"];
+// Changer la visibilité d'un élément (article ou question)
+} elseif (isset($_POST["show_element_id"])){
+    $element_id= $_POST["show_element_id"];
 
-    if($_POST["show_question_bool"] == 1){
-        $question_show = 0;
+    if($_POST["show_element_bool"] == 1){
+        $element_show = 0;
     } else{
-        $question_show = 1;
+        $element_show = 1;
     }
 
     $data=[
-        "question_id" => $question_id,
-        "question_show" => $question_show
+        "element_id" => $element_id,
+        "element_show" => $element_show
     ];
 
-    $show = $database->prepare("UPDATE questionsfaq SET question_show = :question_show WHERE question_id = :question_id");
+    if($_POST["gestion"]=="faq"){
+        $show = $database->prepare("UPDATE questionsfaq SET question_show = :element_show WHERE question_id = :element_id");
+    } else{
+        $show = $database->prepare("UPDATE articlesblog SET article_show = :element_show WHERE article_id = :element_id");
+    }
     if ($show->execute($data)){
-        header("Location: ../gestionFAQ.php");
+        header("Location: ../gestion.php?gestion=" . $_POST["gestion"]);
         exit;
     } else{
         echo "Une erreur est survenue lors du changement de visibilité";
     }
 
-} elseif (isset($_POST["question_id"])){ 
-    if(isset($_POST["question_visible"])){
-        $question_visible = 0;
+// Modifier ou ajouter un élément (article ou question)
+} elseif (isset($_POST["element_id"])){ 
+    if(isset($_POST["element_visible"])){
+        $element_visible = 0;
     } else{
-        $question_visible = 1;
+        $element_visible = 1;
     }
-    if(!$_POST["question_new"]){
-        $question_id = $_POST["question_id"];
-        $question_title = $_POST["question_title"];
-        $question_content = $_POST["question_content"];
+    if(!$_POST["element_new"]){
+        $element_id = $_POST["element_id"];
+        $element_title = $_POST["element_title"];
+        $element_content = $_POST["element_content"];
     
         $data=[
-            "question_id" => $question_id,
-            "question_title" => $question_title,
-            "question_content" => $question_content,
-            "question_visible" => $question_visible
+            "element_id" => $element_id,
+            "element_title" => $element_title,
+            "element_content" => $element_content,
+            "element_visible" => $element_visible
         ];
     
-        $edit = $database->prepare("UPDATE questionsfaq SET question_title = :question_title, question_content = :question_content, question_show = :question_visible WHERE question_id = :question_id");
+        if($_POST["gestion"]=="faq"){
+            $edit = $database->prepare("UPDATE questionsfaq SET question_title = :element_title, question_content = :element_content, question_show = :element_visible WHERE question_id = :element_id");
+        } else{
+            $edit = $database->prepare("UPDATE articlesblog SET article_title = :element_title, article_content = :element_content, article_show = :element_visible WHERE article_id = :element_id");
+        }
         if ($edit->execute($data)){
-            header("Location: ../gestionFAQ.php");
+            header("Location: ../gestion.php?gestion=" . $_POST["gestion"]);
             exit;
         } else{
             echo "Une erreur est survenue lors de la modification";
         }
-    } else{
-        $question_title = $_POST["question_title"];
-        $question_content = $_POST["question_content"];
+    } 
+    // Ajouter un élément (article ou question)
+    else{
+        $element_title = $_POST["element_title"];
+        $element_content = $_POST["element_content"];
 
-        $datar=[
-            "question_title" => $question_title,
-            "question_content" => $question_content,
-            "question_visible" => $question_visible
-        ];
+        if($_POST["gestion"]=="faq"){
+            $data=[
+                "element_title" => $element_title,
+                "element_content" => $element_content,
+                "element_visible" => $element_visible
+            ];
 
-        $add = $database->prepare("INSERT INTO questionsfaq (question_title, question_content, question_show) VALUES (:question_title, :question_content, :question_visible)");
-        if ($add->execute($datar)){
-            header("Location: ../gestionFAQ.php");
+            $add = $database->prepare("INSERT INTO questionsfaq (question_title, question_content, question_show) VALUES (:element_title, :element_content, :element_visible)");
+        } else{
+            $data=[
+                "element_title" => $element_title,
+                "element_content" => $element_content,
+                "element_image" => "abcd",
+                "element_visible" => $element_visible
+            ];
+
+            $add = $database->prepare("INSERT INTO articlesblog (article_title, article_content, article_show, article_image) VALUES (:element_title, :element_content, :element_visible, :element_image)");
+        }
+        if ($add->execute($data)){
+            header("Location: ../gestion.php?gestion=" . $_POST["gestion"]);
             exit;
         } else{
             echo "Une erreur est survenue lors de l'ajout";
         }
     }
+
+// Se connecter en tant qu'administrateur
 } elseif(isset($_POST["username"]) && isset($_POST["password"])){
     $username = $_POST["username"];
     $password = md5($_POST["password"]);
@@ -97,7 +127,7 @@ if (isset($_POST["delete_question"])){
             session_start();
             $_SESSION["username"] = $result["username"];
             $_SESSION["password"] = $result["password"];
-            header("Location: ../gestionFAQ.php");
+            header("Location: ../gestion.php?gestion=faq");
             exit;
         } else{
             echo "Identifiants incorrects";
