@@ -1,11 +1,18 @@
-/** @type {import('tailwindcss').Config} */
+ /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,jsx,tsx}",
+    "./index.php",
+    "./*.{js,jsx,tsx,php,html,css}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'Inter': ['"Inter"'],
+      },
+      colors: {
+        'gen-blue': '#0647F4',
+      }
+    },
   },
   plugins: [],
 }
