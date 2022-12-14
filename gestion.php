@@ -1,5 +1,17 @@
 <?php
+session_start();
 require "database/connect.php";
+
+$user_name = $_SESSION["username"];
+
+$take_is_admin = $database->prepare("SELECT admin_id FROM admins WHERE admin_name LIKE '%$user_name%'");
+$take_is_admin->execute();
+$is_admin = $take_is_admin->fetchAll(PDO::FETCH_ASSOC);
+
+// if (isset()){
+//     header("Location: admin.php");
+//     exit;
+// }
 
 // Choisir entre blog et faq (par défaut blog) 
 if(isset($_GET["gestion"])){

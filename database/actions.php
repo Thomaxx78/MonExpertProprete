@@ -120,13 +120,12 @@ if (isset($_POST["delete_element"])){
         "password" => $password
     ];
 
-    $login = $database->prepare("SELECT * FROM users WHERE user_name = :username AND user_password = :password");
+    $login = $database->prepare("SELECT * FROM admins WHERE admin_name = :username AND admin_password = :password");
     if ($login->execute($data)){
         $result = $login->fetch();
         if($result){
             session_start();
             $_SESSION["username"] = $result["username"];
-            $_SESSION["password"] = $result["password"];
             header("Location: ../gestion.php?gestion=faq");
             exit;
         } else{
