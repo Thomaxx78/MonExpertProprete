@@ -125,7 +125,7 @@ if (isset($_POST["delete_element"])){
         $result = $login->fetch();
         if($result){
             session_start();
-            $_SESSION["username"] = $result["username"];
+            $_SESSION["username"] = $result["admin_name"];
             header("Location: ../gestion.php?gestion=faq");
             exit;
         } else{
@@ -135,7 +135,8 @@ if (isset($_POST["delete_element"])){
         echo "Une erreur est survenue lors de la connexion";
     }
 } else{
-    echo "Une erreur est survenue";
+    header("Location: ../admin.php");
+    exit;
 }
 
 ?>

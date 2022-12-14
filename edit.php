@@ -1,5 +1,11 @@
 <?php
+session_start();
 require "database/connect.php";
+
+if (!isset($_SESSION["username"])){
+    header("Location: admin.php");
+    exit;
+}
 
 // Choisir entre blog et faq (par défaut blog) 
 if(isset($_GET["gestion"])){
