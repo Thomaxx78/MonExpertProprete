@@ -77,7 +77,7 @@ if(isset($_GET["gestion"])){
                 <div class="flex justify-center flex-col gap-4 p-2 m-2 lg:mx-12 border-solid border-blue-700 border-2">
                     <div>
                         <h2 class="text-blue-700 font-bold text-lg"><?= $element[$gestion . "_title"]; ?></h2>
-                        <span class="w-9/12"><?= substr($element[$gestion . "_content"], 0, 100); if(strlen($element[$gestion . "_content"])>100){echo '...';};?></span>
+                        <span class="w-9/12 no-underline"><?= substr($element[$gestion . "_content"], 0, 100); if(strlen($element[$gestion . "_content"])>100){echo '...';};?></span>
                     </div>
                     <div class="flex flex-row w-32 justify-between mr-4 ml-auto">
                         <form method="GET" action="edit.php">

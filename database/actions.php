@@ -69,7 +69,7 @@ if (isset($_POST["delete_element"])){
         $data=[
             "element_id" => htmlspecialchars($element_id),
             "element_title" => htmlspecialchars($element_title),
-            "element_content" => htmlspecialchars($element_content),
+            "element_content" => $element_content,
             "element_visible" => htmlspecialchars($element_visible)
         ];
     

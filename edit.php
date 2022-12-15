@@ -72,6 +72,12 @@ if(!$is_new_content){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
+    <script src="tiny/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+    tinymce.init({
+        selector: '.tinyText'
+    });
+    </script>
 </head>
 <body>
     <header class="sticky top-0 left-0 bg-white">
@@ -86,16 +92,19 @@ if(!$is_new_content){
         </nav>
     </header>
     <main>
-        <h1 class="font-bold text-2xl text-center">Ajouter une question</h1>
+        <h1 class="font-bold text-2xl text-center mt-12">Ajouter <?= $genre2 . " " . $gestion?></h1>
         <form method="POST" action="database/actions.php" enctype="multipart/form-data" class="flex flex-col gap-4 p-2 m-2">
             <input type="hidden" name="element_id" value="<?= $content_id; ?>">
             <input type="hidden" name="gestion" value="<?= $_GET["gestion"]; ?>">
             <input type="hidden" name="element_new" value="<?= $is_new_content; ?>">
-            <label for="element_title" class="w-9/12">Question :</label>
+            <label for="element_title" class="w-9/12">Titre :</label>
             <input type="text" name="element_title" id="element_title" class="border-solid border-blue-700 border-2" value="<?= $all_content[0][$gestion . "_title"];?>">
-            <label for="element_content" class="w-9/12">Réponse :</label>
-            <textarea name="element_content" id="element_content" cols="30" rows="10" class="border-solid border-blue-700 border-2 resize-none"><?= $all_content[0][$gestion . "_content"];?></textarea>
-            <?php
+            <label for="element_content" class="w-9/12">Contenu :</label>
+            <?php if($_GET["gestion"] == "faq"){
+                echo '<textarea name="element_content" id="element_content" cols="30" rows="10" class="border-solid border-blue-700 border-2 resize-none">'; echo $all_content[0][$gestion . "_content"]; echo '</textarea>';
+            } else{
+                echo '<textarea name="element_content" id="element_content" class="tinyText border-solid border-blue-700 border-2 resize-none">'; echo $all_content[0][$gestion . "_content"]; echo '</textarea>';
+            }
             // Si on est sur la page blog et que c'est un nouvel article qui est créé, on affiche l'input pour l'image
             if($gestion == "article" AND !isset($_GET["edit_element"])){
                 echo '<label for="element_image" class="w-9/12">Image :</label>';

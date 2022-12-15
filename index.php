@@ -3,12 +3,13 @@ require "database/connect.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Vite App</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins&display=swap">
 </head>
@@ -54,14 +55,14 @@ require "database/connect.php";
     <div class="ml-4 mt-8 mr-4 flex-column lg:mt-16">
         <h2 class="text-2xl font-bold text-gen-blue">FAQ</h2>
         <h2 class="text-3xl font-bold">Questions fréquentes</h2>
-        <div>
+        <div class="flex flex-wrap">
             <?php
                 $take_all = $database->prepare("SELECT * FROM questionsfaq WHERE question_show = 0 ORDER BY question_id DESC");
                 $take_all->execute();
                 $all_questions = $take_all->fetchAll();
 
                 foreach($all_questions as $question){?>
-                    <div class="mt-12 text-lg w-12/12 lg:w-6/12">
+                    <div class="mt-12 text-lg w-12/12 lg:w-4/12">
                         <h2 class="text-gen-blue font-bold"><?=$question['question_title']?></h2>
                         <span><?=$question['question_content']?></span>
                     </div>
