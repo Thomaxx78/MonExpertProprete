@@ -3,8 +3,6 @@ module.exports = {
   content: [
     "./index.php",
     "./*.{js,jsx,tsx,php,html,css}",
-    "./index.php",
-    "./src/**/*.{js,jsx,tsx,php}",
   ],
   theme: {
     extend: {
@@ -13,6 +11,9 @@ module.exports = {
       },
       colors: {
         'gen-blue': '#0647F4',
+      },
+      we: {
+        'veuxwrap': 'flex flex-wrap',
       }
     },
   },
