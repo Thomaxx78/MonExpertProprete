@@ -81,13 +81,13 @@ if(!$is_new_content){
 </head>
 <body>
     <header class="sticky top-0 left-0 bg-white">
-        <nav class="py-4 flex row justify-evenly lg:justify-between border-solid border-blue-700 border-b-2">
-            <a href="index.html">
+        <nav class="py-4 flex flex-row justify-evenly items-center lg:justify-between border-solid border-blue-700 border-b-2">
+            <a href="index.php" class="hidden lg:block ml-4 w-6/12 lg:w-2/12 lg:ml-16">
                 <img src="public/logo.png" alt="Logo MonExpertPropreté">
             </a>
             <div class="py-4 flex row justify-around w-full lg:w-auto lg:gap-24 lg:mx-12">
-                <a href="gestion.php?gestion=faq">Modifier la faq</a>
-                <a href="gestion.php?gestion=blog">Modifier le blog</a>
+                <a href="gestion.php?gestion=faq" <?php if($gestion=="question"){echo 'class="text-blue-700"';}?>>Modifier la faq</a>
+                <a href="gestion.php?gestion=blog" <?php if($gestion=="article"){echo 'class="text-blue-700"';}?>>Modifier le blog</a>
             </div>
         </nav>
     </header>
