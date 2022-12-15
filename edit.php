@@ -8,28 +8,19 @@ if (!isset($_SESSION["username"])){
 }
 
 // Choisir entre blog et faq (par défaut blog) 
-if(isset($_GET["gestion"])){
-    if($_GET["gestion"] == "blog"){
-        $gestion = "article";
-        $in = "blog";
-        $genre = "du";
-        $genre2 = "un";
-    } elseif($_GET["gestion"] == "faq"){
-        $gestion = "question";
-        $in = "faq";
-        $genre = "de la";
-        $genre2 = "une";
-    } else{
-        $gestion = "article";
-        $in = "blog";
-        $genre = "du";
-        $genre2 = "un";
-    }
-} else{
+if($_GET["gestion"] == "blog"){
     $gestion = "article";
     $in = "blog";
     $genre = "du";
     $genre2 = "un";
+} elseif($_GET["gestion"] == "faq"){
+    $gestion = "question";
+    $in = "faq";
+    $genre = "de la";
+    $genre2 = "une";
+} else{
+    header("Location: gestion.php?gestion=faq");
+    exit;
 }
 
 if(isset($_GET["edit_element"])){
@@ -70,6 +61,7 @@ if(!$is_new_content){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
     <script src="tiny/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
@@ -104,6 +96,13 @@ if(!$is_new_content){
                 echo '<textarea name="element_content" id="element_content" cols="30" rows="10" class="border-solid border-blue-700 border-2 resize-none">'; echo $all_content[0][$gestion . "_content"]; echo '</textarea>';
             } else{
                 echo '<textarea name="element_content" id="element_content" class="tinyText border-solid border-blue-700 border-2 resize-none">'; echo $all_content[0][$gestion . "_content"]; echo '</textarea>';
+                echo '<label for="element_categorie" class="w-9/12">Catégorie de l\'article :</label>';
+                echo '<select name="element_categorie" id="element_categorie" class="border-solid border-blue-700 border-2">';
+                echo '<option value="1">Catégorie 1</option>';
+                echo '<option value="2">Catégorie 2</option>';
+                echo '<option value="3">Catégorie 3</option>';
+                echo '<option value="4">Catégorie 4</option>';
+                echo '</select>';
             }
             // Si on est sur la page blog et que c'est un nouvel article qui est créé, on affiche l'input pour l'image
             if($gestion == "article" AND !isset($_GET["edit_element"])){
