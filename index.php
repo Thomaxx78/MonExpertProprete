@@ -13,53 +13,9 @@ require "database/connect.php";
     <title>Vite App</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins&display=swap">
 </head>
-<header class="font-Inter">
-<nav class="relative px-4 py-4 flex justify-between items-center bg-white lg:mt-4">
-			<a href="" class="lg:ml-16 lg:mr-auto"><img src="public/logo.png" class="lg:h-12" alt=""></a>
-            
-		<div class="lg:hidden">
-			<button class="navbar-burger flex items-center text-gen-blue p-3">
-				<svg class="block h-8 w-8 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-					<title>Mobile menu</title>
-					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-				</svg>
-			</button>
-		</div>
-		<ul class="hidden  lg:flex lg:gap-10">
-                <li class="text-2xl font-bold">Accueil</li>
-                <li class="text-2xl font-bold">Blog</li>
-                <li><a href="#" class="bg-gen-blue hover:bg-blue-800 rounded text-white ml-auto mr-4 text-center px-4 py-2 font-bold lg:mr-16 lg:px-5 lg:py-3 lg:text-2xl sm:mr-8">Télécharger</a></li>
-            </ul>
-	</nav>
-	<div class="navbar-menu relative z-50 hidden">
-		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
-			<div class="flex items-center mb-8">
-            <a href="" class="w-10/12"><img src="public/logo.png" class="lg:h-12" alt=""></a>
-				<button class="navbar-close mr-0 ml-auto">
-					<svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-					</svg>
-				</button>
-			</div>
-			<div>
-				<ul>
-					<li class="mb-1">
-						<a class="block p-4 text-2xl font-bold" href="#">Accueil</a>
-					</li>
-					<li class="mb-1">
-						<a class="block p-4 text-2xl font-bold" href="#">Blog</a>
-					</li>
-				</ul>
-			</div>
-			<div class="mt-auto">
-				<div class="pt-6">
-					<a class="block px-2 py-3 mb- text-center text-white font-bold bg-gen-blue text 2xl rounded" href="#">Télécharger</a>
-				</div>
-			</div>
-            <script src="script.js"></script>
-		</nav>
-</header>
+
+<?php require 'header.php' ?>
+
 <body class="font-Inter">
     <div class="lg:flex lg:items-center lg:mt-16 sm:flex">
         <div class="flex-col mt-16 ml-4 lg:ml-16 sm:ml-8">
@@ -93,7 +49,7 @@ require "database/connect.php";
             <span class="font-normal lg:text-lg mr-4 sm:text-xl">Enregistre une liste de produit d’entretien bon pour la santé et qui fonctionne.</span>
         </div>
     </div>
-    <div class="ml-4 mt-8 mr-4 flex-column lg:mt-16 lg:ml-16 sm:ml-8 sm:mt-16">
+    <div class="ml-4 mt-8 mr-4 flex-column lg:mt-16 lg:ml-16 sm:ml-8 sm:mt-16 lg:mb-16">
         <h2 class="text-2xl font-bold text-gen-blue">FAQ</h2>
         <h2 class="text-3xl font-bold">Questions fréquentes</h2>
         <div class="grid grid-cols-1 lg:grid lg:grid-cols-2 lg:text-start lg:content-center sm:grid sm:grid-cols-2 sm:gap-5">
@@ -111,30 +67,8 @@ require "database/connect.php";
         </div>
     </div>
 
-    <div class="flex w-12/12 mt-8 bg-gen-blue lg:h-auto">
-        <div class="flex-col ml-4 items-center">
-            <img src="public/logoblanc.png" alt="" class="h-10 lg:h-16">
-            <div class="flex flex-row  lg:flex lg:flex-col">
-                <div class="flex-col text-white font-semibold gap-8">
-                    <h2 class="text-xs">Nous contacter</h2>
-                    <h2 class="text-xs">Conditions d'utilisations</h2>
-                    <h2 class="text-xs">Règle de confidentalité</h2>
-                </div>
-                <div class="flex-col right-0">
-                    <div class="flex h-4 ml-auto mr-4">
-                        <img src="public/fb.png" alt="">
-                        <img src="public/tiktok.png" alt="">
-                        <img src="public/snap.png" alt="">
-                        <img src="public/insta.png" alt="">
-                        <img src="public/tumblr.png" alt="">
-                    </div>
-                <div>
-                    <a href="#" class="border-2 text-white border-white rounded w-">Télécharger</a>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
+    <?php require 'footer.php' ?>
+    
     <script type="module" src="./main.js"></script>
 </body>
 </html>

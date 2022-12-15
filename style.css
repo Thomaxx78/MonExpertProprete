@@ -516,6 +516,33 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#F2C, #F2C)
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%
+}
+
+.customafter{
+  width: 100%;
+  left: 0;
+  background: rgb(0, 0, 0);
+  transition: width .3s ease;
+  -webkit-transition: width .3s ease;
+}
+
 .grid-cols-1{
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
