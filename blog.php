@@ -1,4 +1,5 @@
 <?php 
+$page = 'blog';
 require 'require/head.php';
 require 'database/connect.php';
 ?>

@@ -12,9 +12,8 @@ require 'database/connect.php';
         header("Location: blog.php");
         exit;
     }
-?>
 
-<?php 
+$page = 'blog';
 require 'require/head.php';
 ?>
 <body>

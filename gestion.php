@@ -65,7 +65,7 @@ require 'require/head.php' ;
                             <form method="GET" action="edit.php">
                                 <input type="hidden" name="edit_element" value="<?= $element[$gestion . "_id"]; ?>">
                                 <input type="hidden" name="gestion" value="<?= $in ?>">
-                                <button type="submit"><img class="w-6" src="public/iconAdmin/stylo-plume.png" alt=""></button>
+                                <button type="submit"><img class="w-6" src="public/iconAdmin/stylo-plume.png" alt="Icon édition"></button>
                             </form>
                             <form method="POST" action="database/actions.php">
                                 <input type="hidden" name="gestion" value="<?= $in ?>">
@@ -73,16 +73,16 @@ require 'require/head.php' ;
                                 <input type="hidden" name="show_element_bool" value="<?= $element[$gestion . "_show"]; ?>">
                                 <button type="submit">
                                     <?php if($element[$gestion . "_show"] == 1){ ?>
-                                        <img class="w-6" src="public/iconAdmin/no-video.png" alt="">
+                                        <img class="w-6" src="public/iconAdmin/no-video.png" alt="Icon ne pas voir">
                                     <?php } else{ ?>
-                                        <img class="w-6" src="public/iconAdmin/oeil.png" alt="">
+                                        <img class="w-6" src="public/iconAdmin/oeil.png" alt="Icon voir">
                                     <?php }; ?> 
                                 </button>
                             </form>
                             <form method="POST" action="database/actions.php">
                                 <input type="hidden" name="gestion" value="<?= $in ?>">
                                 <input type="hidden" name="delete_element" value="<?= $element[$gestion . "_id"]; ?>">
-                                <button type="submit"><img class="w-6" src="public/iconAdmin/poubelle.png" alt=""></button>
+                                <button type="submit"><img class="w-6" src="public/iconAdmin/poubelle.png" alt="Icon suppression"></button>
                             </form>
                         </div>
                     </div>
