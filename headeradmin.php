@@ -45,6 +45,6 @@
 					<a class="block px-2 py-3 mb-10 text-center text-white font-bold bg-gen-blue text 2xl rounded" href="#">Télécharger</a>
 				</div>
 			</div>
-            <script src="script.js"></script>
+            <script src="burger.js"></script>
 		</nav>
 </header>
