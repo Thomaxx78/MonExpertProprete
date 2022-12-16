@@ -9,7 +9,7 @@ require 'database/connect.php';
     <main>
         <section class="flex flex-col gap-8">
             <div class="flex justify-start gap-8">
-                <span>Trier par catégorie :</span>
+                <span class="lg:text-xl font-bold lg:ml-16">Trier par catégorie :</span>
                 <select name="select_category" id="select_category">
                     <option value="0">Ne pas trier</option>
                     <option value="1">Les détergents</option>
