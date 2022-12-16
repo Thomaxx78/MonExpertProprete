@@ -29,10 +29,10 @@
 			<div>
 				<ul>
 					<li class="mb-1">
-						<a class="block p-4 text-2xl font-bold" href="#">Accueil</a>
+						<a class="block p-4 text-2xl font-bold" href="accueil.php">Accueil</a>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-2xl font-bold" href="#">Blog</a>
+						<a class="block p-4 text-2xl font-bold" href="blog.php">Blog</a>
 					</li>
 				</ul>
 			</div>
