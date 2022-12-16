@@ -96,12 +96,12 @@ if(!$is_new_content){
                 echo '<textarea name="element_content" id="element_content" cols="30" rows="10" class="border-solid border-blue-700 border-2 resize-none">'; echo $all_content[0][$gestion . "_content"]; echo '</textarea>';
             } else{
                 echo '<textarea name="element_content" id="element_content" class="tinyText border-solid border-blue-700 border-2 resize-none">'; echo $all_content[0][$gestion . "_content"]; echo '</textarea>';
-                echo '<label for="element_categorie" class="w-9/12">Catégorie de l\'article :</label>';
-                echo '<select name="element_categorie" id="element_categorie" class="border-solid border-blue-700 border-2">';
-                echo '<option value="1">Catégorie 1</option>';
-                echo '<option value="2">Catégorie 2</option>';
-                echo '<option value="3">Catégorie 3</option>';
-                echo '<option value="4">Catégorie 4</option>';
+                echo '<label for="element_category" class="w-9/12">Catégorie de l\'article :</label>';
+                echo '<select name="element_category" id="element_category" class="border-solid border-blue-700 border-2">';
+                echo '<option value="1">Les détergents</option>';
+                echo '<option value="2">Les désinfectants</option>';
+                echo '<option value="3">Les produits détartrants</option>';
+                echo '<option value="4">Les nettoyants abrasifs</option>';
                 echo '</select>';
             }
             // Si on est sur la page blog et que c'est un nouvel article qui est créé, on affiche l'input pour l'image

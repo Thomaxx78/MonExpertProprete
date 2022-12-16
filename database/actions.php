@@ -76,8 +76,8 @@ if (isset($_POST["delete_element"])){
         if($_POST["gestion"]=="faq"){
             $edit = $database->prepare("UPDATE questionsfaq SET question_title = :element_title, question_content = :element_content, question_show = :element_visible WHERE question_id = :element_id");
         } else{
-            $data["element_categorie"] = $_POST["element_categorie"];
-            $edit = $database->prepare("UPDATE articlesblog SET article_title = :element_title, article_content = :element_content, article_show = :element_visible, article_categorie = :element_categorie WHERE article_id = :element_id");
+            $data["element_category"] = $_POST["element_category"];
+            $edit = $database->prepare("UPDATE articlesblog SET article_title = :element_title, article_content = :element_content, article_show = :element_visible, article_category = :element_category WHERE article_id = :element_id");
         }
         if ($edit->execute($data)){
             header("Location: ../gestion.php?gestion=" . $_POST["gestion"]);

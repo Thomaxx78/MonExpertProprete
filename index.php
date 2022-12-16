@@ -69,6 +69,24 @@ require "database/connect.php";
             <?php } ?>
         </div>
     </div>
+    <div>
+        <h2>Derniers articles :</h2>
+        <div class="flex flex-col lg:flex-row justify-around">
+            <?php
+                $take_all = $database->prepare("SELECT * FROM articlesblog WHERE article_show = 0 ORDER BY article_id DESC LIMIT 2");
+                $take_all->execute();
+                $all_articles = $take_all->fetchAll();
+
+                foreach($all_articles as $article){?>
+                    <div class="flex flex-col align-center mt-12 text-lg w-full lg:w-5/12 category_<?= $article["article_category"]?>">
+                        <img src="images/<?=$article['article_image']?>" alt="image" class="max-h-48 m-auto object-cover rounded-xl">
+                        <h2 class="text-gen-blue font-bold text-center py-4"><?=$article['article_title']?></h2>
+                        <section class="text-justify h-2/4 p-2 lg:p-8"><?=substr($article["article_content"], 0, 250)?>...</section>
+                        <a href="article.php?id=<?=$article['article_id']?>" class=" bg-gen-blue hover:bg-blue-800 rounded text-white m-2 lg:m-8 mt-4 text-center py-2 font-bold lg:px-5 lg:py-3 lg:text-2xl">Lire la suite</a>
+                    </div>
+            <?php }?>
+        </div>
+    </div>
 
     <div class="flex w-12/12 mt-8 bg-gen-blue">
         <div class="flex-col ml-4 items-center">

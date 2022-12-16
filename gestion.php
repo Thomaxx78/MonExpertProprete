@@ -66,34 +66,42 @@ if($_GET["gestion"] == "blog"){
         ?>
         <section>
             <?php foreach($all as $element){ ?>
-                <div class="flex justify-center flex-col gap-4 p-2 m-2 lg:mx-12 border-solid border-blue-700 border-2">
+                <div class="flex justify-between flex-row gap-4 p-2 m-2 lg:mx-12 border-solid border-blue-700 border-2">
                     <div>
                         <h2 class="text-blue-700 font-bold text-lg"><?= $element[$gestion . "_title"]; ?></h2>
                         <span class="w-9/12 no-underline"><?= substr($element[$gestion . "_content"], 0, 100); if(strlen($element[$gestion . "_content"])>100){echo '...';};?></span>
                     </div>
-                    <div class="flex flex-row w-32 justify-between mr-4 ml-auto">
-                        <form method="GET" action="edit.php">
-                            <input type="hidden" name="edit_element" value="<?= $element[$gestion . "_id"]; ?>">
-                            <input type="hidden" name="gestion" value="<?= $in ?>">
-                            <button type="submit"><img class="w-6" src="public/iconAdmin/stylo-plume.png" alt=""></button>
-                        </form>
-                        <form method="POST" action="database/actions.php">
-                            <input type="hidden" name="gestion" value="<?= $in ?>">
-                            <input type="hidden" name="show_element_id" value="<?= $element[$gestion . "_id"]; ?>">
-                            <input type="hidden" name="show_element_bool" value="<?= $element[$gestion . "_show"]; ?>">
-                            <button type="submit">
-                                <?php if($element[$gestion . "_show"] == 1){ ?>
-                                    <img class="w-6" src="public/iconAdmin/no-video.png" alt="">
-                                <?php } else{ ?>
-                                    <img class="w-6" src="public/iconAdmin/oeil.png" alt="">
-                                <?php }; ?> 
-                            </button>
-                        </form>
-                        <form method="POST" action="database/actions.php">
-                            <input type="hidden" name="gestion" value="<?= $in ?>">
-                            <input type="hidden" name="delete_element" value="<?= $element[$gestion . "_id"]; ?>">
-                            <button type="submit"><img class="w-6" src="public/iconAdmin/poubelle.png" alt=""></button>
-                        </form>
+                    <div class="flex flex-col justify-between">
+                        <?php
+                            if($gestion == "article"){
+                                $array_category = [0, "Les détergents", "Les désinfectants", "Les produits détartrants", "Les nettoyants abrasifs"];
+                                echo '<span class="text-blue-700 font-bold">Catégorie : ' . $array_category[$element[$gestion . "_category"]] . '</span>';
+                            }
+                        ?>
+                        <div class="flex flex-row w-32 justify-between mr-4 ml-auto">
+                            <form method="GET" action="edit.php">
+                                <input type="hidden" name="edit_element" value="<?= $element[$gestion . "_id"]; ?>">
+                                <input type="hidden" name="gestion" value="<?= $in ?>">
+                                <button type="submit"><img class="w-6" src="public/iconAdmin/stylo-plume.png" alt=""></button>
+                            </form>
+                            <form method="POST" action="database/actions.php">
+                                <input type="hidden" name="gestion" value="<?= $in ?>">
+                                <input type="hidden" name="show_element_id" value="<?= $element[$gestion . "_id"]; ?>">
+                                <input type="hidden" name="show_element_bool" value="<?= $element[$gestion . "_show"]; ?>">
+                                <button type="submit">
+                                    <?php if($element[$gestion . "_show"] == 1){ ?>
+                                        <img class="w-6" src="public/iconAdmin/no-video.png" alt="">
+                                    <?php } else{ ?>
+                                        <img class="w-6" src="public/iconAdmin/oeil.png" alt="">
+                                    <?php }; ?> 
+                                </button>
+                            </form>
+                            <form method="POST" action="database/actions.php">
+                                <input type="hidden" name="gestion" value="<?= $in ?>">
+                                <input type="hidden" name="delete_element" value="<?= $element[$gestion . "_id"]; ?>">
+                                <button type="submit"><img class="w-6" src="public/iconAdmin/poubelle.png" alt=""></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             <?php }; ?>
