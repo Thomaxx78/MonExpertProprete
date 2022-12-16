@@ -53,36 +53,18 @@ if(!$is_new_content){
         $all_content = [["article_title" => "", "article_content" => "", "article_show" => 0, "article_image" => ""]];
     }
 }
-?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
-    <script src="tiny/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-    tinymce.init({
-        selector: '.tinyText'
-    });
-    </script>
-</head>
+
+require 'require/head.php';
+?>
+<script src="tiny/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+tinymce.init({
+    selector: '.tinyText'
+});
+</script>
 <body>
-    <header class="sticky top-0 left-0 bg-white">
-        <nav class="py-4 flex flex-row justify-evenly items-center lg:justify-between border-solid border-blue-700 border-b-2">
-            <a href="index.php" class="hidden lg:block ml-4 w-6/12 lg:w-2/12 lg:ml-16">
-                <img src="public/logo.png" alt="Logo MonExpertPropreté">
-            </a>
-            <div class="py-4 flex row justify-around w-full lg:w-auto lg:gap-24 lg:mx-12">
-                <a href="gestion.php?gestion=faq" <?php if($gestion=="question"){echo 'class="text-blue-700"';}?>>Modifier la faq</a>
-                <a href="gestion.php?gestion=blog" <?php if($gestion=="article"){echo 'class="text-blue-700"';}?>>Modifier le blog</a>
-            </div>
-        </nav>
-    </header>
+<?php require 'require/headeradmin.php';?>
     <main>
         <h1 class="font-bold text-2xl text-center mt-12">Ajouter <?= $genre2 . " " . $gestion?></h1>
         <form method="POST" action="database/actions.php" enctype="multipart/form-data" class="flex flex-col gap-4 p-2 m-2">

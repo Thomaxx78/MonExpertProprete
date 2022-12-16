@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
-</head>
+<?php
+require 'require/head.php';
+?>
 <body class="h-screen">
     <h1 class="font-bold text-2xl text-center mt-48 lg:mt-32">Se connecter </h1>
     <form action="database/actions.php" method="POST" class="absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 flex flex-col gap-4 p-2 w-9/12 lg:w-4/12">

@@ -24,19 +24,11 @@ if($_GET["gestion"] == "blog"){
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <?php require 'headeradmin.php' ?>
+<?php 
+require 'require/head.php' ;
+?>
+<body  class="font-Inter">
+    <?php require 'require/headeradmin.php' ?>
     <main>
         <div class="my-8 gap-6 flex flex-col lg:flex-row lg:justify-between lg:mx-16">
             <h1 class="font-bold text-2xl text-center"><?= ucfirst($gestion)?>s <?= $genre . " " . $in?></h1>
@@ -57,12 +49,12 @@ if($_GET["gestion"] == "blog"){
         ?>
         <section>
             <?php foreach($all as $element){ ?>
-                <div class="flex justify-between flex-row gap-4 p-2 m-2 lg:mx-12 border-solid border-blue-700 border-2">
+                <div class="flex justify-between items-center flex-row gap-4 p-2 m-2 lg:mx-12 border-solid border-blue-700 border-2">
                     <div>
                         <h2 class="text-blue-700 font-bold text-lg"><?= $element[$gestion . "_title"]; ?></h2>
                         <span class="w-9/12 no-underline"><?= substr($element[$gestion . "_content"], 0, 100); if(strlen($element[$gestion . "_content"])>100){echo '...';};?></span>
                     </div>
-                    <div class="flex flex-col justify-between">
+                    <div class="flex flex-col justify-between gap-6">
                         <?php
                             if($gestion == "article"){
                                 $array_category = [0, "Les détergents", "Les désinfectants", "Les produits détartrants", "Les nettoyants abrasifs"];
@@ -73,7 +65,7 @@ if($_GET["gestion"] == "blog"){
                             <form method="GET" action="edit.php">
                                 <input type="hidden" name="edit_element" value="<?= $element[$gestion . "_id"]; ?>">
                                 <input type="hidden" name="gestion" value="<?= $in ?>">
-                                <button type="submit"><img class="w-6" src="public/iconAdmin/stylo-plume.png" alt=""></button>
+                                <button type="submit"><img class="w-6" src="public/iconAdmin/stylo-plume.png" alt="Icon édition"></button>
                             </form>
                             <form method="POST" action="database/actions.php">
                                 <input type="hidden" name="gestion" value="<?= $in ?>">
@@ -81,16 +73,16 @@ if($_GET["gestion"] == "blog"){
                                 <input type="hidden" name="show_element_bool" value="<?= $element[$gestion . "_show"]; ?>">
                                 <button type="submit">
                                     <?php if($element[$gestion . "_show"] == 1){ ?>
-                                        <img class="w-6" src="public/iconAdmin/no-video.png" alt="">
+                                        <img class="w-6" src="public/iconAdmin/no-video.png" alt="Icon ne pas voir">
                                     <?php } else{ ?>
-                                        <img class="w-6" src="public/iconAdmin/oeil.png" alt="">
+                                        <img class="w-6" src="public/iconAdmin/oeil.png" alt="Icon voir">
                                     <?php }; ?> 
                                 </button>
                             </form>
                             <form method="POST" action="database/actions.php">
                                 <input type="hidden" name="gestion" value="<?= $in ?>">
                                 <input type="hidden" name="delete_element" value="<?= $element[$gestion . "_id"]; ?>">
-                                <button type="submit"><img class="w-6" src="public/iconAdmin/poubelle.png" alt=""></button>
+                                <button type="submit"><img class="w-6" src="public/iconAdmin/poubelle.png" alt="Icon suppression"></button>
                             </form>
                         </div>
                     </div>
