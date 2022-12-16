@@ -9,7 +9,7 @@
                     <a href="admin.php">connection</p>
                 </div>
                 <div class="flex mt-4 items-center lg:flex-col">
-                    <a class="bg-white text-gen-blue py-1 px-2 rounded  font-bold lg:text-2xl " href="#">Télécharger</a>
+                    <a class="download bg-white text-gen-blue py-1 px-2 rounded  font-bold lg:text-2xl " href="#">Télécharger</a>
                     <div class="flex h-4 gap-2 mr-4 ml-auto lg:h-8">
                         <img src="public/fb.png" alt="Facebook">
                         <img src="public/tiktok.png" alt="Tiktok">
