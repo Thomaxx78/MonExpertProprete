@@ -67,8 +67,7 @@ require "database/connect.php";
         </div>
     </div>
 
-    <?php require 'footer.php' ?>
-    
+    <?php require 'footer.php' ?>   
     <script type="module" src="./main.js"></script>
 </body>
 </html>

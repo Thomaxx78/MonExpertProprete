@@ -46,20 +46,11 @@ if(isset($_GET["deco"])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <header class="sticky top-0 left-0 bg-white">
-        <nav class="py-4 flex row justify-evenly lg:justify-between border-solid border-blue-700 border-b-2">
-            <a href="index.html" class="hidden lg:block ml-4 w-6/12 lg:w-2/12 lg:ml-16">
-                <img src="public/logo.png" alt="Logo MonExpertPropreté">
-            </a>
-            <div class="py-4 flex row justify-around w-full lg:w-auto lg:gap-24 lg:mx-12">
-                <a href="gestion.php?gestion=faq" <?php if($gestion=="question"){echo 'class="text-blue-700"';}?>>Modifier la faq</a>
-                <a href="gestion.php?gestion=blog" <?php if($gestion=="article"){echo 'class="text-blue-700"';}?>>Modifier le blog</a>
-            </div>
-        </nav>
-    </header>
+    <?php require 'headeradmin.php' ?>
     <main>
         <div class="my-8 gap-6 flex flex-col lg:flex-row lg:justify-between lg:mx-16">
             <h1 class="font-bold text-2xl text-center"><?= ucfirst($gestion)?>s <?= $genre . " " . $in?></h1>
