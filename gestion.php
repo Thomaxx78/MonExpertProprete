@@ -24,19 +24,11 @@ if($_GET["gestion"] == "blog"){
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <?php require 'headeradmin.php' ?>
+<?php 
+require 'require/head.php' ;
+?>
+<body  class="font-Inter">
+    <?php require 'require/headeradmin.php' ?>
     <main>
         <div class="my-8 gap-6 flex flex-col lg:flex-row lg:justify-between lg:mx-16">
             <h1 class="font-bold text-2xl text-center"><?= ucfirst($gestion)?>s <?= $genre . " " . $in?></h1>

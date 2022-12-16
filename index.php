@@ -1,22 +1,10 @@
-<?php
-require "database/connect.php";
+<?php 
+require 'database/connect.php';
+require 'require/head.php' ;
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="style.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Vite App</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins&display=swap">
-</head>
-
-<?php require 'header.php' ?>
-
 <body class="font-Inter">
+    <?php require 'require/header.php';?>
     <div class="lg:flex lg:items-center lg:mt-16 sm:flex">
         <div class="flex-col mt-16 ml-4 lg:ml-16 sm:ml-8">
             <h1 class="font-bold text-3xl mr-4 lg:text-6xl lg:w-11/12 sm:w-11/12">Choisir les meilleurs produits d'entretien pour votre santé.</h1>
@@ -85,8 +73,7 @@ require "database/connect.php";
         </div>
     </div>
 
-    <?php require 'footer.php' ?>   
+    <?php require 'require/footer.php' ?>   
     <script type="module" src="./main.js"></script>
-    <script src="knowDevice.js"></script>
 </body>
 </html>
