@@ -66,12 +66,12 @@ if($_GET["gestion"] == "blog"){
         ?>
         <section>
             <?php foreach($all as $element){ ?>
-                <div class="flex justify-between flex-row gap-4 p-2 m-2 lg:mx-12 border-solid border-blue-700 border-2">
+                <div class="flex justify-between items-center flex-row gap-4 p-2 m-2 lg:mx-12 border-solid border-blue-700 border-2">
                     <div>
                         <h2 class="text-blue-700 font-bold text-lg"><?= $element[$gestion . "_title"]; ?></h2>
                         <span class="w-9/12 no-underline"><?= substr($element[$gestion . "_content"], 0, 100); if(strlen($element[$gestion . "_content"])>100){echo '...';};?></span>
                     </div>
-                    <div class="flex flex-col justify-between">
+                    <div class="flex flex-col justify-between gap-6">
                         <?php
                             if($gestion == "article"){
                                 $array_category = [0, "Les détergents", "Les désinfectants", "Les produits détartrants", "Les nettoyants abrasifs"];

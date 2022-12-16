@@ -16,7 +16,7 @@ require "database/connect.php";
 <header class="font-Inter">
     <div class="mt-6 flex items-center">
     <img src="public/logo.png" class="ml-4 w-6/12 lg:w-2/12 lg:ml-16">
-    <a href="#" class=" bg-gen-blue hover:bg-blue-800 rounded text-white ml-auto mr-4 text-center px-4 py-2 font-bold lg:mr-16 lg:px-5 lg:py-3 lg:text-2xl">Télécharger</a>
+    <a href="#" class="download bg-gen-blue hover:bg-blue-800 rounded text-white ml-auto mr-4 text-center px-4 py-2 font-bold lg:mr-16 lg:px-5 lg:py-3 lg:text-2xl">Télécharger</a>
     </div>
 </header>
 <body class="font-Inter">
@@ -25,7 +25,7 @@ require "database/connect.php";
             <h1 class="font-bold text-3xl mr-4 lg:text-6xl lg:w-9/12">Choisir les meilleurs produits d'entretient pour votre santé.</h1>
             <h3 class="mt-2 text-xl mr-4 lg:text-2xl lg:font-bold lg:mt-12 lg:w-7/12">Une application pour scanner vos produits et trouver des bons conseils pour les utiliser.</h3>
             <div class="flex mt-6 space-x-4 items-center">
-                <a href="#" class=" bg-gen-blue hover:bg-blue-800 px-3 py-1 font-bold text-white rounded lg:text-xl lg:py-4 lg:w-3/12 lg:text-center">Télécharger</a>
+                <a href="#" class="download bg-gen-blue hover:bg-blue-800 px-3 py-1 font-bold text-white rounded lg:text-xl lg:py-4 lg:w-3/12 lg:text-center">Télécharger</a>
                 <a href="#" class="text-gen-blue hover:bg-gen-blue hover:text-white font-bold  border-2 border-gen-blue px-3 py-1 rounded lg:py-4 lg:w-4/12 lg:text-xl lg:text-center">Voir la démo</a>
             </div>
         </div>
@@ -108,5 +108,6 @@ require "database/connect.php";
         </div>
     </div>
     <script type="module" src="./main.js"></script>
+    <script src="knowDevice.js"></script>
 </body>
 </html>

@@ -995,16 +995,46 @@ video {
   .lg\:font-bold {
     font-weight: 700;
   }
-/* 
-  .lg\:flex-wrap {
-    flex-wrap: wrap;
-  }
+}
 
-  .lg\:grid {
-    display: grid;
-  }
+.content-article h1{
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  text-decoration: underline;
+  /* text-align: center; */
+}
 
-  .lg\:grid-cols-2{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  } */
+.content-article h2{
+  padding-top: 16px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.content-article h3{
+  padding-top: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.content-article h4{
+  padding-top: 8px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.content-article p{
+  text-align: justify;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.content-article b{
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem 0;
 }
