@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /*
 ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
 */
@@ -386,7 +389,7 @@ Make sure disabled buttons don't get the pointer cursor.
 /*
 1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
 2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
-   This can trigger a poorly considered lint error in some tools but is included by design.
+  This can trigger a poorly considered lint error in some tools but is included by design.
 */
 
 img,
@@ -511,6 +514,41 @@ video {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+}
+
+
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#F2C, #F2C)
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%
+}
+
+.customafter{
+  width: 100%;
+  left: 0;
+  background: rgb(0, 0, 0);
+  transition: width .3s ease;
+  -webkit-transition: width .3s ease;
+}
+
+.grid-cols-1{
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .absolute {
@@ -995,46 +1033,16 @@ video {
   .lg\:font-bold {
     font-weight: 700;
   }
-}
+/* 
+  .lg\:flex-wrap {
+    flex-wrap: wrap;
+  }
 
-.content-article h1{
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin: 1rem 0;
-  text-decoration: underline;
-  /* text-align: center; */
-}
+  .lg\:grid {
+    display: grid;
+  }
 
-.content-article h2{
-  padding-top: 16px;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin: 1rem 0;
-}
-
-.content-article h3{
-  padding-top: 12px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin: 1rem 0;
-}
-
-.content-article h4{
-  padding-top: 8px;
-  font-size: 1.125rem;
-  font-weight: 700;
-  margin: 1rem 0;
-}
-
-.content-article p{
-  text-align: justify;
-  font-size: 1rem;
-  font-weight: 400;
-  margin: 1rem 0;
-}
-
-.content-article b{
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 1rem 0;
+  .lg\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  } */
 }

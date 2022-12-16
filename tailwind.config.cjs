@@ -11,6 +11,9 @@ module.exports = {
       },
       colors: {
         'gen-blue': '#0647F4',
+      },
+      we: {
+        'veuxwrap': 'flex flex-wrap',
       }
     },
   },
