@@ -30,6 +30,6 @@ require 'require/head.php';
         </div>
     </main>
 <?php require 'require/footer.php';?>
-    <script src="knowDevice.js"></script>
+<script src="js/knowDevice.js"></script>
 </body>
 </html>

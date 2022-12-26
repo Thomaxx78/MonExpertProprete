@@ -35,7 +35,7 @@ require 'database/connect.php';
     <?php } ?>
     </section>
     <?php require 'require/footer.php' ?>
-    <script src="categorieArticle.js"></script>
-    <script src="knowDevice.js"></script>
+    <script src="js/knowDevice.js"></script>
+    <script src="js/categorieArticle.js"></script>
 </body>
 </html>

@@ -42,16 +42,16 @@ require 'require/head.php' ;
     <div class="ml-4 mt-8 mr-4 flex-column lg:mt-16 lg:ml-16 sm:ml-8 sm:mt-16 lg:mb-16">
         <h2 class="text-2xl font-bold text-gen-blue">FAQ</h2>
         <h2 class="text-3xl font-bold">Questions fréquentes</h2>
-        <div class="flex flex-col lg:grid lg:grid-cols-2 lg:ml-16 ml-8">
+        <div class="flex flex-col lg:grid lg:grid-cols-2">
             <?php
                 $take_all = $database->prepare("SELECT * FROM questionsfaq WHERE question_show = 0 ORDER BY question_id DESC");
                 $take_all->execute();
                 $all_questions = $take_all->fetchAll();
 
                 foreach($all_questions as $question){?>
-                    <div class="mt-12 lg:w-12/12 ">
-                        <h2 class="text-gen-blue font-bold lg:text-2xl text-xl"><?=$question['question_title']?></h2>
-                        <span class="lg:text-xl"><?=$question['question_content']?></span>
+                    <div class="questionFAQ m-4 lg:w-12/12 p-4 lg:p-6 rounded">
+                        <h2 class="text-gen-blue font-bold text-xl"><?=$question['question_title']?></h2>
+                        <span class="lg:text-lg"><?=$question['question_content']?></span>
                     </div>
             <?php } ?>
         </div>
@@ -76,6 +76,8 @@ require 'require/head.php' ;
     </div>
 
     <?php require 'require/footer.php' ?>   
+    <script src="js/faqStyle.js"></script>
+    <script src="js/knowDevice.js"></script>
     <script type="module" src="./main.js"></script>
 </body>
 </html>

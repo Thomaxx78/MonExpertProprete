@@ -93,5 +93,6 @@ require 'require/head.php' ;
             <a href="edit.php?gestion=<?= $in?>" class="bg-blue-700 px-4 py-2 text-white rounded">Ajouter <?= $genre2 . " " . $gestion?></a>
         </div>
     </main>
+    <script src="js/knowDevice.js"></script>
 </body>
 </html>

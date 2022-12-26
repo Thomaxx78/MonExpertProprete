@@ -99,5 +99,6 @@ tinymce.init({
             <button type="submit" class="bg-blue-700 px-4 py-2 text-white rounded">Ajouter</button>
         </form>
     </main>
+    <script src="js/knowDevice.js"></script>
 </body>
 </html>
