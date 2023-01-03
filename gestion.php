@@ -29,7 +29,7 @@ require 'require/head.php' ;
 ?>
 <body  class="font-Inter">
     <?php require 'require/headeradmin.php' ?>
-    <main>
+    <main class="xl:mx-32">
         <div class="my-8 gap-6 flex flex-col lg:flex-row lg:justify-between lg:mx-16">
             <h1 class="font-bold text-2xl text-center"><?= ucfirst($gestion)?>s <?= $genre . " " . $in?></h1>
             <div class="flex justify-center">
@@ -52,7 +52,7 @@ require 'require/head.php' ;
                 <div class="flex justify-between items-center flex-row gap-4 p-2 m-2 lg:mx-12 border-solid border-blue-700 border-2">
                     <div>
                         <h2 class="text-blue-700 font-bold text-lg"><?= $element[$gestion . "_title"]; ?></h2>
-                        <span class="w-9/12 no-underline"><?= substr($element[$gestion . "_content"], 0, 100); if(strlen($element[$gestion . "_content"])>100){echo '...';};?></span>
+                        <span class="w-9/12 no-underline"><?= htmlspecialchars_decode(substr($element[$gestion . "_content"], 0, 100)); if(strlen($element[$gestion . "_content"])>100){echo '...';};?></span>
                     </div>
                     <div class="flex flex-col justify-between gap-6">
                         <?php

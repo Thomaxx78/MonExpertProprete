@@ -100,11 +100,11 @@ if (isset($_POST["delete_element"])){
         if($_POST["gestion"]=="faq"){
             $add = $database->prepare("INSERT INTO questionsfaq (question_title, question_content, question_show) VALUES (:element_title, :element_content, :element_visible)");
         } else{
-            $data["element_categorie"] = $_POST["element_categorie"];
+            $data["element_categorie"] = $_POST["element_category"];
             $data["element_image_link"] = '../public/imagesArticles/' . $_FILES["element_image"]["name"];
             move_uploaded_file($_FILES["element_image"]["tmp_name"], $data["element_image_link"]);
 
-            $add = $database->prepare("INSERT INTO articlesblog (article_title, article_content, article_show, article_image, article_categorie) VALUES (:element_title, :element_content, :element_visible, :element_image_link, :element_categorie)");
+            $add = $database->prepare("INSERT INTO articlesblog (article_title, article_content, article_show, article_image, article_category) VALUES (:element_title, :element_content, :element_visible, :element_image_link, :element_categorie)");
         }
         if ($add->execute($data)){
             header("Location: ../gestion.php?gestion=" . $_POST["gestion"]);

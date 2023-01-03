@@ -65,7 +65,7 @@ tinymce.init({
 </script>
 <body>
 <?php require 'require/headeradmin.php';?>
-    <main>
+    <main class="mx-32">
         <h1 class="font-bold text-2xl text-center mt-12">Ajouter <?= $genre2 . " " . $gestion?></h1>
         <form method="POST" action="database/actions.php" enctype="multipart/form-data" class="flex flex-col gap-4 p-2 m-2">
             <input type="hidden" name="element_id" value="<?= $content_id; ?>">
